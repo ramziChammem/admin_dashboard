@@ -1,0 +1,91 @@
+.user {
+  flex: 4;
+  padding: 20px;
+}
+.userTitle {
+  color: rgb(92, 91, 91);
+}
+.userTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userAddBtn {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+}
+.userContainer {
+  display: flex;
+  margin-top: 20px;
+}
+.userPersonalInformation {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+  margin-right: 20px;
+}
+.userFinancialInformation {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+}
+.userSpanPersonal {
+  font-size: 20px;
+  font-weight: 600;
+}
+.userSpanFinancial {
+  font-size: 20px;
+  font-weight: 600;
+}
+.userPeronalTop {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+.userPersonalTopImg {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.userPersonalTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.userPersonalTopUsername {
+  font-weight: 600;
+}
+.userPersonalJobTitle {
+  font-weight: 300;
+  color: #555;
+}
+.userPeronalBottom {
+  margin-top: 20px;
+}
+.userPersonalInfo {
+  display: flex !important;
+  align-items: center !important;
+  margin: 20px 0px;
+  color: #444;
+}
+.userPersonalIcon {
+  font-size: 20px !important;
+  margin-right: 10px;
+}
+.userShowInfoTitle {
+  color: gray;
+}
+.breakLine {
+  margin-top: 40px;
+  width: 86%;
+  margin-left: 25px;
+}
