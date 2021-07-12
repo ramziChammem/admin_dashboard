@@ -95,31 +95,31 @@ export const userRows = [
 export const userServiceData = [
   {
     name: "Service 1",
-    Dollar: 205,
+    Times: 4,
   },
   {
     name: "Service 2",
 
-    Dollar: 380,
+    Times: 2,
   },
   {
     name: "Service 3",
-    Dollar: 20,
+    Times: 20,
   },
   {
     name: "Service 4",
-    Dollar: 0,
+    Times: 6,
   },
   {
     name: "Service 5",
-    Dollar: 140,
+    Times: 12,
   },
   {
     name: "Service 6",
-    Dollar: 550,
+    Times: 0,
   },
   {
     name: "Service 7",
-    Dollar: 100,
+    Times: 3,
   },
 ];

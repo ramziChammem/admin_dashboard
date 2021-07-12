@@ -8,6 +8,7 @@ import {
   LocationOnOutlined,
   FiberManualRecord,
   AccessAlarmsOutlined,
+  EqualizerOutlined,
 } from "@material-ui/icons";
 import {
   BarChart,
@@ -20,6 +21,21 @@ import {
   ResponsiveContainer,
 } from "recharts";
 export default function User() {
+  var checkMostRequired = (data) => {
+    var service = "";
+    var highest = 0;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].Times > highest) {
+        highest = data[i].Times;
+        service = data[i].name;
+      }
+    }
+    return (
+      <span className="reqServiceMost">
+        {service}, {highest} times.
+      </span>
+    );
+  };
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -74,7 +90,11 @@ export default function User() {
           <span className="userSpanFinancial">Financial Information</span>
           <div className="requiredServicesContainer">
             <span className="requiredServicesSpan">Required Services</span>
-            <ResponsiveContainer className="requiredServicesChart" width="90%" aspect={5 / 2}>
+            <ResponsiveContainer
+              className="requiredServicesChart"
+              width="90%"
+              aspect={5 / 2}
+            >
               <BarChart
                 width={500}
                 height={300}
@@ -97,12 +117,19 @@ export default function User() {
                 <Legend />
                 <CartesianGrid strokeDasharray="3 3" />
                 <Bar
-                  dataKey="Dollar"
+                  dataKey="Times"
                   fill="#8884d8"
                   background={{ fill: "#eee" }}
                 />
               </BarChart>
             </ResponsiveContainer>
+          </div>
+          <div className="mostRequiredServiceContainer">
+            <EqualizerOutlined className="mostRequiredIcon"/>
+            <span className="mostRequiredServiceSpan">
+              Most required Service:
+            </span>
+            {checkMostRequired(userServiceData)}
           </div>
         </div>
       </div>

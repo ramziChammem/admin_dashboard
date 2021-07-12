@@ -94,7 +94,7 @@
   margin-right: 25px;
 }
 .avrgUserActive {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   color: rgb(83, 82, 82);
 }
@@ -125,10 +125,33 @@
   width: 100%;
 }
 .requiredServicesSpan {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   color: rgb(117, 117, 117);
 }
 .requiredServicesChart {
   margin-top: 30px;
+  margin-bottom: 30px;
+}
+.mostRequiredServiceSpan {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(56, 55, 55);
+  margin-right: 25px;
+}
+
+.reqServiceMost {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgb(83, 82, 82);
+}
+.mostRequiredServiceContainer {
+  display: flex !important;
+  align-items: center !important;
+  margin: 20px 0px;
+}
+.mostRequiredIcon {
+  font-size: 21px !important;
+  margin-right: 10px;
+  color: #444;
 }
