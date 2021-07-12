@@ -1,11 +1,24 @@
 import React from "react";
 import "./User.css";
+import { userServiceData } from "../../dummyData";
 import {
   PersonOutlineOutlined,
   PhoneAndroidOutlined,
   EmailOutlined,
   LocationOnOutlined,
+  FiberManualRecord,
+  AccessAlarmsOutlined,
 } from "@material-ui/icons";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 export default function User() {
   return (
     <div className="user">
@@ -14,9 +27,7 @@ export default function User() {
       </div>
       <div className="userContainer">
         <div className="userPersonalInformation">
-          <div className="personalInfoTitle">
-            <span className="userSpanPersonal">Personal Information</span>
-          </div>
+          <span className="userSpanPersonal">Personal Information</span>
 
           <div className="userPeronalTop">
             <img
@@ -47,10 +58,52 @@ export default function User() {
               <div className="userShowInfoTitle">Nabeul | Tunisia</div>
             </div>
             <hr className="breakLine"></hr>
+            <div className="actvAvrgContainer">
+              <FiberManualRecord className="activeIcon" />
+              <span className="userActiveAverage">Active Average:</span>
+              <span className="avrgUserActive">110 minutes per day</span>
+            </div>
+            <div className="actvAvrgContainer">
+              <AccessAlarmsOutlined className="timeIcon" />
+              <span className="userActiveAverage">Prefered Time Per Day:</span>
+              <span className="avrgUserActive">18:00h</span>
+            </div>
           </div>
         </div>
         <div className="userFinancialInformation">
           <span className="userSpanFinancial">Financial Information</span>
+          <div className="requiredServicesContainer">
+            <span className="requiredServicesSpan">Required Services</span>
+            <ResponsiveContainer className="requiredServicesChart" width="90%" aspect={5 / 2}>
+              <BarChart
+                width={500}
+                height={300}
+                data={userServiceData}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+                barSize={20}
+              >
+                <XAxis
+                  dataKey="name"
+                  scale="point"
+                  padding={{ left: 10, right: 10 }}
+                />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <CartesianGrid strokeDasharray="3 3" />
+                <Bar
+                  dataKey="Dollar"
+                  fill="#8884d8"
+                  background={{ fill: "#eee" }}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>

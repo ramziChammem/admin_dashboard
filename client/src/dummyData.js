@@ -92,3 +92,34 @@ export const userRows = [
     transactions: "$320.253",
   },
 ];
+export const userServiceData = [
+  {
+    name: "Service 1",
+    Dollar: 205,
+  },
+  {
+    name: "Service 2",
+
+    Dollar: 380,
+  },
+  {
+    name: "Service 3",
+    Dollar: 20,
+  },
+  {
+    name: "Service 4",
+    Dollar: 0,
+  },
+  {
+    name: "Service 5",
+    Dollar: 140,
+  },
+  {
+    name: "Service 6",
+    Dollar: 550,
+  },
+  {
+    name: "Service 7",
+    Dollar: 100,
+  },
+];
