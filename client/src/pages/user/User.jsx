@@ -125,11 +125,15 @@ export default function User() {
             </ResponsiveContainer>
           </div>
           <div className="mostRequiredServiceContainer">
-            <EqualizerOutlined className="mostRequiredIcon"/>
+            <EqualizerOutlined className="mostRequiredIcon" />
             <span className="mostRequiredServiceSpan">
               Most required Service:
             </span>
             {checkMostRequired(userServiceData)}
+          </div>
+          <hr className="breakLineFinancial"></hr>
+          <div className="userTransaction">
+            <span className="userTransactionsSpan">User Transactions</span>
           </div>
         </div>
       </div>

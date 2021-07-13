@@ -154,4 +154,30 @@
   font-size: 21px !important;
   margin-right: 10px;
   color: #444;
+  margin-bottom: 20px;
+}
+.userTransactionsSpan {
+  font-size: 18px;
+  font-weight: 900;
+  color: rgb(117, 117, 117);
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.breakLineFinancial {
+  margin-top: 40px;
+  width: 93%;
+  margin-left: 25px;
+  margin-bottom: 40px;
+}
+
+
+
+.table-fixed tbody {
+  display: block;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.table-fixed tr {
+  display: block;
 }
