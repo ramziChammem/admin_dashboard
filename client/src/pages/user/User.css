@@ -4,6 +4,7 @@
 }
 .userTitle {
   color: rgb(92, 91, 91);
+  font-size: 24px;
 }
 .userTitleContainer {
   display: flex;
@@ -170,14 +171,18 @@
   margin-bottom: 40px;
 }
 
-
-
-.table-fixed tbody {
-  display: block;
-  height: 300px;
-  overflow-y: auto;
+.scroll-ableTable {
+  margin-top: 30px;
 }
-
-.table-fixed tr {
-  display: block;
+.approvedIcon {
+  margin-right: 10px;
+  color: rgb(16, 197, 0);
+}
+.declinedIcon {
+  margin-right: 10px;
+  color: rgb(199, 13, 13);
+}
+.pendingIcon {
+  margin-right: 10px;
+  color: rgb(245, 200, 0);
 }

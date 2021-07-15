@@ -9,6 +9,9 @@ import {
   FiberManualRecord,
   AccessAlarmsOutlined,
   EqualizerOutlined,
+  CheckBoxOutlined,
+  CancelOutlined,
+  HourglassEmptyOutlined,
 } from "@material-ui/icons";
 import {
   BarChart,
@@ -20,21 +23,77 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-export default function User() {
-  var checkMostRequired = (data) => {
-    var service = "";
-    var highest = 0;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].Times > highest) {
-        highest = data[i].Times;
-        service = data[i].name;
-      }
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableRow from "@material-ui/core/TableRow";
+import { userTransactions } from "../../dummyData";
+var checkMostRequired = (data) => {
+  var service = "";
+  var highest = 0;
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].Times > highest) {
+      highest = data[i].Times;
+      service = data[i].name;
     }
-    return (
-      <span className="reqServiceMost">
-        {service}, {highest} times.
-      </span>
-    );
+  }
+  return (
+    <span className="reqServiceMost">
+      {service}, {highest} times.
+    </span>
+  );
+};
+const columns = [
+  { id: "shop", label: "Shop", minWidth: 150 },
+  { id: "date", label: "Date", minWidth: 120 },
+  {
+    id: "ammount",
+    label: "Ammount",
+    minWidth: 100,
+    align: "right",
+  },
+  {
+    id: "status",
+    label: "Status",
+    minWidth: 170,
+    align: "right",
+  },
+];
+const rows = [];
+userTransactions.map(function (transaction) {
+  var trans = {};
+  trans.shop = transaction.shop;
+  trans.date = transaction.date;
+  trans.ammount = transaction.ammount;
+  trans.status = transaction.status;
+  rows.push(trans);
+  console.log(rows);
+});
+const useStyles = makeStyles({
+  root: {
+    width: "100%",
+  },
+  container: {
+    maxHeight: 440,
+  },
+});
+export default function User() {
+  const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
   };
   return (
     <div className="user">
@@ -83,6 +142,22 @@ export default function User() {
               <AccessAlarmsOutlined className="timeIcon" />
               <span className="userActiveAverage">Prefered Time Per Day:</span>
               <span className="avrgUserActive">18:00h</span>
+            </div>
+            <hr className="breakLine"></hr>
+            <div className="actvAvrgContainer">
+              <CheckBoxOutlined className="approvedIcon" />
+              <span className="userActiveAverage">Approved Transactions:</span>
+              <span className="avrgUserActive">15 transaction</span>
+            </div>
+            <div className="actvAvrgContainer">
+              <CancelOutlined className="declinedIcon" />
+              <span className="userActiveAverage">Declined Transactions:</span>
+              <span className="avrgUserActive">7 transactions</span>
+            </div>
+            <div className="actvAvrgContainer">
+              <HourglassEmptyOutlined className="pendingIcon" />
+              <span className="userActiveAverage">Pending Transactions:</span>
+              <span className="avrgUserActive">4 transactions</span>
             </div>
           </div>
         </div>
@@ -134,6 +209,62 @@ export default function User() {
           <hr className="breakLineFinancial"></hr>
           <div className="userTransaction">
             <span className="userTransactionsSpan">User Transactions</span>
+            <Paper className="scroll-ableTable">
+              <TableContainer className={classes.container}>
+                <Table stickyHeader aria-label="sticky table">
+                  <TableHead>
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          style={{ minWidth: column.minWidth }}
+                        >
+                          {column.label}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {rows
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                      .map((row) => {
+                        return (
+                          <TableRow
+                            hover
+                            role="checkbox"
+                            tabIndex={-1}
+                            key={row.code}
+                          >
+                            {columns.map((column) => {
+                              const value = row[column.id];
+                              return (
+                                <TableCell key={column.id} align={column.align}>
+                                  {column.format && typeof value === "number"
+                                    ? column.format(value)
+                                    : value}
+                                </TableCell>
+                              );
+                            })}
+                          </TableRow>
+                        );
+                      })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TablePagination
+                rowsPerPageOptions={[10, 25, 100]}
+                component="div"
+                count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Paper>
           </div>
         </div>
       </div>
