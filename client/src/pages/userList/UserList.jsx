@@ -17,7 +17,6 @@ export default function UserList() {
       headerName: "User",
       width: 230,
       renderCell: (params) => {
-        console.log("what are params here ???", params);
         return (
           <div className="userListUser">
             <img className="userListUserImg" src={params.row.avatar} alt="" />

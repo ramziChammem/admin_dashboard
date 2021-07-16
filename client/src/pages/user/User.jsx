@@ -72,7 +72,6 @@ userTransactions.map(function (transaction) {
   trans.ammount = transaction.ammount;
   trans.status = transaction.status;
   rows.push(trans);
-  console.log(rows);
 });
 const useStyles = makeStyles({
   root: {
