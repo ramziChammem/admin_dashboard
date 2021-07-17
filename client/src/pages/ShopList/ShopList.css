@@ -1,11 +1,11 @@
-.UserList {
+.shopList {
   flex: 4;
 }
-.userListUser {
+.shopListUser {
   display: flex;
   align-items: center;
 }
-.userListUserImg {
+.shopListUserImg {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -14,20 +14,20 @@
   object-fit: cover;
   margin-right: 10px;
 }
-.userListEdit {
+.shopListEdit {
   border: none;
   border-radius: 10px;
   padding: 6px 12px;
   background-color: #4cdd97;
   color: #fff;
   cursor: pointer;
-  margin-left: 20px;
+  margin-right: 20px;
   transition: 0.3s ease-in-out;
 }
-.userListEdit:hover {
+.shopListEdit:hover {
   background-color: #3bb077;
 }
-.userListDelete {
+.shopListDelete {
   height: 24px;
   width: 13px;
   color: red;
@@ -35,7 +35,7 @@
   border-radius: 5px;
   transition: 0.2s ease-in-out !important;
 }
-.userListDelete:hover {
+.shopListDelete:hover {
   background-color: red;
   color: white;
 }

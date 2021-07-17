@@ -1,15 +1,12 @@
 import React from "react";
 import "./UserList.css";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 export default function UserList() {
   const [data, setData] = useState(userRows);
-  const deleteUser = (userId) => {
-    setData(data.filter((item) => item.id !== userId));
-  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -44,15 +41,8 @@ export default function UserList() {
         return (
           <>
             <Link to={"/users/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">View More</button>
             </Link>
-
-            <DeleteOutline
-              className="userListDelete"
-              onClick={() => {
-                deleteUser(params.row.id);
-              }}
-            />
           </>
         );
       },
