@@ -97,7 +97,7 @@ export default function Shop() {
   return (
     <div className="shop">
       <div className="shopTitleContainer">
-        <h1 className="shopTitle">User Details</h1>
+        <h1 className="shopTitle">Shop Details</h1>
       </div>
       <div className="shopContainer">
         <div className="shopPersonalInformation">
